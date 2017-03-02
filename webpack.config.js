@@ -1,4 +1,5 @@
 const path = require('path');
+var webpack = require('webpack');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -37,13 +38,13 @@ module.exports = {
   },
   "entry": {
     "main": [
-      "./src\\main.ts"
+      "./src/main.ts"
     ],
     "polyfills": [
-      "./src\\polyfills.ts"
+      "./src/polyfills.ts"
     ],
     "styles": [
-      "./src\\styles.css"
+      "./src/styles.css"
     ]
   },
   "output": {
@@ -79,7 +80,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.css$/,
         "loaders": [
@@ -90,7 +91,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.scss$|\.sass$/,
         "loaders": [
@@ -102,7 +103,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.less$/,
         "loaders": [
@@ -114,7 +115,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.styl$/,
         "loaders": [
@@ -126,7 +127,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.css$/,
         "loaders": ExtractTextPlugin.extract({
@@ -140,7 +141,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.scss$|\.sass$/,
         "loaders": ExtractTextPlugin.extract({
@@ -155,7 +156,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.less$/,
         "loaders": ExtractTextPlugin.extract({
@@ -170,7 +171,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.styl$/,
         "loaders": ExtractTextPlugin.extract({
@@ -197,14 +198,14 @@ module.exports = {
         "favicon.ico"
       ],
       "globOptions": {
-        "cwd": "D:\\shadow\\cli\\asps\\src",
+        "cwd": "./src",
         "dot": true,
         "ignore": "**/.gitkeep"
       }
     }),
     new ProgressPlugin(),
     new HtmlWebpackPlugin({
-      "template": "./src\\index.html",
+      "template": "./src/index.html",
       "filename": "./index.html",
       "hash": false,
       "inject": true,
@@ -277,13 +278,14 @@ module.exports = {
         "context": ""
       }
     }),
+   
     new AotPlugin({
       "mainPath": "main.ts",
       "hostReplacementPaths": {
         "environments\\environment.ts": "environments\\environment.ts"
       },
       "exclude": [],
-      "tsConfigPath": "src\\tsconfig.app.json",
+      "tsConfigPath": "src/tsconfig.app.json",
       "skipCodeGeneration": true
     })
   ],

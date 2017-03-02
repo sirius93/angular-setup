@@ -1,10 +1,18 @@
 import { Component } from '@angular/core';
 
+import { ApiService } from '../services';
+
+// import '../style/app.scss';
+
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', // <my-app></my-app>
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'app works!';
+  title: string;
+
+  constructor(private api: ApiService) {
+    this.title = this.api.title;
+  }
 }

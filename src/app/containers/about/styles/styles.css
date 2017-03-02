@@ -1,0 +1,5 @@
+$blue: #fff;
+
+.blue{
+    color:$blue;
+}
